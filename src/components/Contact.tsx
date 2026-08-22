@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { CONTACT } from '../data/contact';
 import { Icon } from './icons';
@@ -33,6 +34,12 @@ const QR_ITEMS = [
 
 export function Contact() {
   const { t } = useLanguage();
+  const [submitted, setSubmitted] = useState(false);
+
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setSubmitted(true);
+  }
 
   return (
     <section id="contacts" className="bg-gray-100 py-20 md:py-24">
@@ -130,33 +137,44 @@ export function Contact() {
             as="div"
             className="rounded-2xl border border-gray-200 bg-white p-8 shadow-sm transition-shadow duration-300 hover:shadow-md"
           >
-            <form
-              action={`mailto:${CONTACT.email}`}
-              method="post"
-              encType="text/plain"
-            >
-              <div className="mb-3.5 grid grid-cols-1 gap-3.5 sm:grid-cols-2">
-                <Field label={t('form_name')} name="name" placeholder={t('form_name_ph')} type="text" />
-                <Field label={t('form_phone')} name="phone" placeholder={t('form_phone_ph')} type="tel" />
+            {submitted ? (
+              <div className="flex flex-col items-center justify-center py-12 text-center">
+                <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-100 text-green-600">
+                  <Icon name="check" className="h-8 w-8" />
+                </div>
+                <h3 className="mb-2 text-xl font-bold text-black">{t('form_success')}</h3>
+                <button
+                  onClick={() => setSubmitted(false)}
+                  className="mt-6 rounded-md bg-brand-red px-6 py-2.5 text-[14px] font-semibold text-white transition hover:bg-brand-red-dark"
+                >
+                  &larr; {t('nav_contacts')}
+                </button>
               </div>
-              <div className="mb-3.5">
-                <label className="mb-1.5 block text-[12.5px] font-semibold uppercase tracking-wide text-gray-600">
-                  {t('form_message')}
-                </label>
-                <textarea
-                  name="message"
-                  rows={4}
-                  placeholder={t('form_message_ph')}
-                  className="w-full resize-y rounded-lg border border-gray-200 bg-white px-3.5 py-3 text-[14.5px] text-black placeholder:text-gray-400 transition-colors duration-200 focus:border-brand-red focus:outline-none focus:ring-4 focus:ring-brand-red/10"
-                />
-              </div>
-              <button
-                type="submit"
-                className="w-full rounded-md bg-brand-red px-7 py-3.5 text-[15px] font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-red-dark hover:shadow-lg hover:shadow-brand-red/25"
-              >
-                {t('form_submit')}
-              </button>
-            </form>
+            ) : (
+              <form onSubmit={handleSubmit}>
+                <div className="mb-3.5 grid grid-cols-1 gap-3.5 sm:grid-cols-2">
+                  <Field label={t('form_name')} name="name" placeholder={t('form_name_ph')} type="text" />
+                  <Field label={t('form_phone')} name="phone" placeholder={t('form_phone_ph')} type="tel" />
+                </div>
+                <div className="mb-3.5">
+                  <label className="mb-1.5 block text-[12.5px] font-semibold uppercase tracking-wide text-gray-600">
+                    {t('form_message')}
+                  </label>
+                  <textarea
+                    name="message"
+                    rows={4}
+                    placeholder={t('form_message_ph')}
+                    className="w-full resize-y rounded-lg border border-gray-200 bg-white px-3.5 py-3 text-[14.5px] text-black placeholder:text-gray-400 transition-colors duration-200 focus:border-brand-red focus:outline-none focus:ring-4 focus:ring-brand-red/10"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="w-full rounded-md bg-brand-red px-7 py-3.5 text-[15px] font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-red-dark hover:shadow-lg hover:shadow-brand-red/25"
+                >
+                  {t('form_submit')}
+                </button>
+              </form>
+            )}
 
             <div className="mt-8 border-t border-gray-100 pt-6">
               <span className="mb-3.5 block text-center sm:text-left text-[12.5px] font-semibold uppercase tracking-wider text-gray-500">

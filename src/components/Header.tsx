@@ -12,7 +12,6 @@ const NAV_ITEMS = [
   { key: 'nav_catalog', hash: '#categories' },
   { key: 'nav_service', hash: '#service' },
   { key: 'nav_hits', hash: '#hits' },
-  { key: 'nav_blog', hash: '#blog' },
   { key: 'nav_contacts', hash: '#contacts' },
 ] as const;
 
@@ -126,7 +125,7 @@ export function Header() {
                 {t(item.key)}
               </a>
             ))}
-          </nav>
+          </nav>     
 
           <div className="flex flex-shrink-0 items-center gap-4">
             <div className="hidden xl:block">

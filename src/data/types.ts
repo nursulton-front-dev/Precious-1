@@ -9,14 +9,9 @@ export interface Category {
   countKey: TranslationKey;
 }
 
-export interface ProductSpecs {
-  speed?: string;
-  needle?: string;
-  stitch?: string;
-  system?: string;
-  lube?: string;
-  motor?: string;
-  weight?: string;
+export interface SpecRow {
+  label: LocalizedText;
+  value: LocalizedText;
 }
 
 export interface Product {
@@ -26,7 +21,7 @@ export interface Product {
   image: string;
   tagline: LocalizedText;
   description: LocalizedText;
-  specs: ProductSpecs;
+  specs: SpecRow[];
 }
 
 export interface BlogPost {

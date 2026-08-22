@@ -6,7 +6,7 @@ import { Icon } from './icons';
 import type { IconName } from './icons';
 import { Counter } from './Counter';
 import { RevealGroup, RevealItem } from './Reveal';
-import heroImg from '../assets/factory/factory-building.jpg';
+import heroImg from '../assets/store-front.jpg';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 22 },
@@ -41,23 +41,34 @@ export function Hero() {
         <motion.img
           style={{ y: imgY }}
           src={heroImg}
-          alt=""
+          alt="PRECIOUS Showroom"
           className="absolute inset-x-0 -top-[8%] h-[116%] w-full object-cover object-[65%_50%] sm:object-[55%_50%] lg:object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/35 to-black/70" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/45 to-black/75" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/20" />
 
         <motion.div
           style={{ y: contentY, opacity: contentOpacity }}
           initial="hidden"
           animate="show"
           variants={{ show: { transition: { staggerChildren: 0.1, delayChildren: 0.1 } } }}
-          className="relative z-10 mx-auto flex w-full max-w-[900px] flex-col items-center px-6 pt-[82px] text-center will-change-transform"
+          className="relative z-10 mx-auto flex w-full max-w-[960px] flex-col items-center px-6 pt-[82px] text-center will-change-transform"
         >
+          <motion.div
+            variants={fadeUp}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/15 px-4.5 py-2 backdrop-blur-md shadow-lg"
+          >
+            <span className="h-2 w-2 rounded-full bg-brand-red animate-pulse" />
+            <span className="text-[12px] sm:text-[13.5px] font-bold uppercase tracking-wider text-white">
+              {t('hero_badge_tag')}
+            </span>
+          </motion.div>
+
           <motion.h1
             variants={fadeUp}
             transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-            className="font-head text-[40px] font-semibold uppercase leading-[1.05] tracking-wide text-white sm:text-[56px] lg:text-[68px]"
+            className="font-head text-[38px] font-semibold uppercase leading-[1.05] tracking-wide text-white sm:text-[54px] lg:text-[64px]"
           >
             <span>{t('hero_title_1')}</span>
             <span className="text-brand-red">{t('hero_title_2')}</span>
