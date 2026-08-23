@@ -26,7 +26,7 @@ import imgPc1860a from '../assets/products/pc1860a.png';
 import imgPc1900a from '../assets/products/pc1900a.png';
 import imgPc910 from '../assets/products/pc910.jpeg';
 import imgPc99b from '../assets/products/pc99b.png';
-import imgG20d5 from '../assets/products/g20-d5.png';
+import imgG20d5 from '../assets/products/g20-d5.jpg';
 import imgPc717 from '../assets/products/pc717.png';
 import imgV203m from '../assets/products/v20-3m.jpeg';
 import imgV19s4ut from '../assets/products/v19s-4ut.jpeg';
