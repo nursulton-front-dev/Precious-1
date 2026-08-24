@@ -23,7 +23,7 @@ import imgPc600d from '../assets/products/pc600d.jpeg';
 import imgPc100b from '../assets/products/pc100b.jpeg';
 import imgPc100d from '../assets/products/pc100d.jpeg';
 import imgPc1860a from '../assets/products/pc1860a.png';
-import imgPc1900a from '../assets/products/pc1900a.png';
+import imgPc1900a from '../assets/products/pc1900a.jpg';
 import imgPc910 from '../assets/products/pc910.jpeg';
 import imgPc99b from '../assets/products/pc99b.png';
 import imgG20d5 from '../assets/products/g20-d5.jpg';
