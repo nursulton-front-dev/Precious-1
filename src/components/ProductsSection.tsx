@@ -1,15 +1,27 @@
-import { forwardRef } from 'react';
+import { forwardRef, useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import { CATEGORIES } from '../data/categories';
 import { PRODUCTS } from '../data/products';
 import { ProductCard } from './ProductCard';
 import { Reveal } from './Reveal';
+import { getProducts } from '../services/productService';
+import type { Product } from '../data/types';
 
 export const ProductsSection = forwardRef<HTMLDivElement, { activeCategory: string; onCategoryChange: (id: string) => void }>(
   function ProductsSection({ activeCategory, onCategoryChange }, ref) {
     const { t } = useLanguage();
-    const list = activeCategory === 'all' ? PRODUCTS : PRODUCTS.filter((p) => p.category === activeCategory);
+    const [productsList, setProductsList] = useState<Product[]>(PRODUCTS);
+
+    useEffect(() => {
+      getProducts().then((fetched) => {
+        if (fetched && fetched.length > 0) {
+          setProductsList(fetched);
+        }
+      });
+    }, []);
+
+    const list = activeCategory === 'all' ? productsList : productsList.filter((p) => p.category === activeCategory);
 
     return (
       <section id="hits" ref={ref} className="py-20 md:py-24">

@@ -6,24 +6,36 @@ import { ProductCard } from '../components/ProductCard';
 import { Icon } from '../components/icons';
 import { useLanguage } from '../i18n/LanguageContext';
 import { CATEGORIES } from '../data/categories';
-import { getProductById, getRelatedProducts } from '../data/products';
+import { getProductById } from '../data/products';
+import { getProducts } from '../services/productService';
+import type { Product } from '../data/types';
 
 export function ProductDetail() {
   const { id } = useParams();
   const { t, lang } = useLanguage();
   const [tab, setTab] = useState<'description' | 'specs'>('description');
-
-  const product = getProductById(id);
+  const [product, setProduct] = useState<Product | undefined>(() => getProductById(id));
+  const [allProducts, setAllProducts] = useState<Product[]>([]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
     setTab('description');
+
+    getProducts().then((list) => {
+      setAllProducts(list);
+      const found = list.find((p) => p.id === id);
+      if (found) {
+        setProduct(found);
+      }
+    });
   }, [id]);
 
   if (!product) return <Navigate to="/" replace />;
 
   const category = CATEGORIES.find((c) => c.id === product.category);
-  const related = getRelatedProducts(product);
+  const related = (allProducts.length > 0 ? allProducts : [product])
+    .filter((p) => p.category === product.category && p.id !== product.id)
+    .slice(0, 4);
 
   return (
     <>
