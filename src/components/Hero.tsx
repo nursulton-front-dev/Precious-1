@@ -6,7 +6,7 @@ import { Icon } from './icons';
 import type { IconName } from './icons';
 import { Counter } from './Counter';
 import { RevealGroup, RevealItem } from './Reveal';
-import heroImg from '../assets/store-front.jpg';
+import heroImg from '../assets/hero-bg.jpg';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 22 },
