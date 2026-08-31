@@ -8,6 +8,12 @@ import { Icon } from './icons';
 export function ProductCard({ product }: { product: Product }) {
   const { t, lang } = useLanguage();
   const category = CATEGORIES.find((c) => c.id === product.category);
+  const rawTagline = (product.tagline?.[lang] ?? product.tagline?.uz ?? '').trim();
+  const isTaglinePlaceholder =
+    rawTagline.toLowerCase().includes('tez orada') ||
+    rawTagline.toLowerCase().includes('скоро') ||
+    rawTagline.toLowerCase().includes('coming soon');
+  const tagline = !isTaglinePlaceholder ? rawTagline : '';
 
   return (
     <motion.div
@@ -39,9 +45,13 @@ export function ProductCard({ product }: { product: Product }) {
           <h3 className="mb-1.5 text-[16px] font-semibold transition-colors duration-300 group-hover:text-brand-red">
             {product.model}
           </h3>
-          <p className="mb-4 line-clamp-2 flex-1 text-[13px] text-gray-600">
-            {product.tagline[lang] ?? product.tagline.uz}
-          </p>
+          {tagline ? (
+            <p className="mb-4 line-clamp-2 flex-1 text-[13px] text-gray-600">
+              {tagline}
+            </p>
+          ) : (
+            <div className="mb-4 flex-1" />
+          )}
           <span className="inline-flex items-center gap-1.5 text-[13.5px] font-bold uppercase tracking-wide text-brand-red">
             {t('product_more')}
             <Icon name="arrow" className="h-3.5 w-3.5 transition-transform duration-300 ease-out group-hover:translate-x-1.5" />

@@ -53,14 +53,14 @@ function specs(rows: [string, string, string, string, string, string][]): SpecRo
 /* These models are announced with a name and photo only — the client will
    provide full descriptions and specs after the site launches. */
 const comingSoonTagline = {
-  uz: "Tafsilotlar tez orada qo'shiladi",
-  ru: "Подробности скоро появятся",
-  en: "Details coming soon",
+  uz: "",
+  ru: "",
+  en: "",
 };
 const comingSoonDescription = {
-  uz: "Ushbu model haqida to'liq ma'lumot tez orada qo'shiladi.",
-  ru: "Полная информация об этой модели будет добавлена в ближайшее время.",
-  en: "Full information about this model will be added shortly.",
+  uz: "",
+  ru: "",
+  en: "",
 };
 
 export const PRODUCTS: Product[] = [

@@ -24,6 +24,15 @@ export async function getProducts(): Promise<Product[]> {
       return PRODUCTS;
     }
 
+    const cleanText = (text?: any) => {
+      if (!text) return { uz: '', ru: '', en: '' };
+      const val = (text.uz || text.ru || text.en || '').toLowerCase();
+      if (val.includes('tez orada') || val.includes('скоро') || val.includes('coming soon')) {
+        return { uz: '', ru: '', en: '' };
+      }
+      return text;
+    };
+
     // Merge fetched DB products with static fallback images if image_url is empty
     return data.map((item: any) => {
       const fallback = PRODUCTS.find((p) => p.id === item.id);
@@ -32,8 +41,8 @@ export async function getProducts(): Promise<Product[]> {
         category: item.category,
         model: item.model,
         image: item.image_url && item.image_url.trim() !== '' ? item.image_url : (fallback?.image || staticImageMap[item.id] || ''),
-        tagline: item.tagline || fallback?.tagline || { uz: '', ru: '', en: '' },
-        description: item.description || fallback?.description || { uz: '', ru: '', en: '' },
+        tagline: cleanText(item.tagline || fallback?.tagline),
+        description: cleanText(item.description || fallback?.description),
         specs: item.specs || fallback?.specs || [],
       };
     });

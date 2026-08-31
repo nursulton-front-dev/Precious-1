@@ -37,6 +37,23 @@ export function ProductDetail() {
     .filter((p) => p.category === product.category && p.id !== product.id)
     .slice(0, 4);
 
+  const rawTagline = (product.tagline?.[lang] ?? product.tagline?.uz ?? '').trim();
+  const isTaglinePlaceholder =
+    rawTagline.toLowerCase().includes('tez orada') ||
+    rawTagline.toLowerCase().includes('скоро') ||
+    rawTagline.toLowerCase().includes('coming soon');
+  const tagline = !isTaglinePlaceholder ? rawTagline : '';
+
+  const rawDesc = (product.description?.[lang] ?? product.description?.uz ?? '').trim();
+  const isDescPlaceholder =
+    rawDesc.toLowerCase().includes('tez orada') ||
+    rawDesc.toLowerCase().includes('скоро') ||
+    rawDesc.toLowerCase().includes('coming soon');
+  const description = !isDescPlaceholder ? rawDesc : '';
+
+  const hasSpecs = product.specs && product.specs.length > 0;
+  const hasDesc = Boolean(description);
+
   return (
     <>
       <Header />
@@ -60,10 +77,12 @@ export function ProductDetail() {
           <span className="mb-2.5 block text-[13px] font-bold uppercase tracking-wide text-brand-red">
             {category ? t(category.nameKey) : ''}
           </span>
-          <h1 className="font-head text-[26px] font-semibold uppercase leading-tight tracking-wide sm:text-[34px]">
+          <h1 className={`font-head text-[26px] font-semibold uppercase leading-tight tracking-wide sm:text-[34px] ${tagline ? '' : 'mb-6.5'}`}>
             {product.model}
           </h1>
-          <p className="mt-3 mb-6.5 text-[16px] text-gray-600">{product.tagline[lang] ?? product.tagline.uz}</p>
+          {tagline && (
+            <p className="mt-3 mb-6.5 text-[16px] text-gray-600">{tagline}</p>
+          )}
 
           <div className="mb-8.5 flex flex-wrap gap-3.5">
             <Link
@@ -80,7 +99,7 @@ export function ProductDetail() {
             </Link>
           </div>
 
-          {product.specs.length > 0 && (
+          {hasSpecs && hasDesc && (
             <div className="mb-6.5 flex gap-7 border-b border-gray-200">
               <button
                 onClick={() => setTab('description')}
@@ -101,9 +120,9 @@ export function ProductDetail() {
             </div>
           )}
 
-          {tab === 'description' || product.specs.length === 0 ? (
-            <p className="text-[15px] text-gray-600">{product.description[lang] ?? product.description.uz}</p>
-          ) : (
+          {tab === 'description' && hasDesc ? (
+            <p className="text-[15px] text-gray-600">{description}</p>
+          ) : hasSpecs ? (
             <table className="w-full border-collapse">
               <tbody>
                 {product.specs.map((row, i) => (
@@ -114,7 +133,7 @@ export function ProductDetail() {
                 ))}
               </tbody>
             </table>
-          )}
+          ) : null}
         </div>
       </div>
 
