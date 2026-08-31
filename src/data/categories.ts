@@ -6,4 +6,5 @@ export const CATEGORIES: Category[] = [
   { id: 'interlock', icon: 'catInterlock', nameKey: 'cat_interlock_name', countKey: 'cat_interlock_count' },
   { id: 'special', icon: 'catSpecial', nameKey: 'cat_special_name', countKey: 'cat_special_count' },
   { id: 'heavy', icon: 'catHeavy', nameKey: 'cat_heavy_name', countKey: 'cat_heavy_count' },
+  { id: 'accessories', icon: 'catAccessories', nameKey: 'cat_accessories_name', countKey: 'cat_accessories_count' },
 ];

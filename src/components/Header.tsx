@@ -10,8 +10,8 @@ const NAV_ITEMS = [
   { key: 'nav_home', hash: '#home' },
   { key: 'nav_about', hash: '#about' },
   { key: 'nav_catalog', hash: '#categories' },
-  { key: 'nav_service', hash: '#service' },
   { key: 'nav_hits', hash: '#hits' },
+  { key: 'nav_service', hash: '#service' },
   { key: 'nav_contacts', hash: '#contacts' },
 ] as const;
 

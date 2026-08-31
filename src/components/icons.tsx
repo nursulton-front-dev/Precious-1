@@ -32,6 +32,9 @@ const icons: Record<string, (props: IconProps) => React.JSX.Element> = {
   catHeavy: (props) => (
     <svg viewBox="0 0 24 24" fill="none" {...props}><circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="1.8" /><path d="M12 3v3M12 18v3M21 12h-3M6 12H3M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1M18.4 18.4l-2.1-2.1M7.7 7.7 5.6 5.6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" /></svg>
   ),
+  catAccessories: (props) => (
+    <svg viewBox="0 0 24 24" fill="none" {...props}><circle cx="6" cy="6" r="3" stroke="currentColor" strokeWidth="1.8" /><circle cx="6" cy="18" r="3" stroke="currentColor" strokeWidth="1.8" /><path d="M20 4L8.7 15.3M8.7 8.7L20 20" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" /></svg>
+  ),
 
   check: (props) => (
     <svg viewBox="0 0 24 24" fill="none" {...props}><circle cx="12" cy="12" r="10" fill="#FFE9EA" /><path d="M8 12.5l2.5 2.5L16 9.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>

@@ -46,6 +46,7 @@ export const translations = {
     cat_interlock_name: "Rashma / Interlok mashinalari", cat_interlock_count: "20 model",
     cat_special_name: "Maxsus mashinalar", cat_special_count: "18 model",
     cat_heavy_name: "O'rta va og'ir turdagi mashinalar", cat_heavy_count: "16 model",
+    cat_accessories_name: "Aksessuarlar", cat_accessories_count: "12 model",
 
     service_eyebrow: "Xizmat", service_title: "Sotuvdan keyingi to'liq xizmat",
     service_text: "Mashinani sotib olish - bu boshlanishi. Biz butun ishlash muddatida yoningizdamiz",
@@ -135,6 +136,7 @@ export const translations = {
     cat_interlock_name: "Распошивальные (интерлок) машины", cat_interlock_count: "20 моделей",
     cat_special_name: "Специальные машины", cat_special_count: "18 моделей",
     cat_heavy_name: "Машины среднего и тяжёлого типа", cat_heavy_count: "16 моделей",
+    cat_accessories_name: "Аксессуары", cat_accessories_count: "12 моделей",
 
     service_eyebrow: "Сервис", service_title: "Полное сервисное сопровождение",
     service_text: "Покупка машины - это только начало. Мы рядом на протяжении всего срока службы",
@@ -224,6 +226,7 @@ export const translations = {
     cat_interlock_name: "Coverstitch / Interlock Machines", cat_interlock_count: "20 models",
     cat_special_name: "Special Machines", cat_special_count: "18 models",
     cat_heavy_name: "Medium & Heavy Duty Machines", cat_heavy_count: "16 models",
+    cat_accessories_name: "Accessories", cat_accessories_count: "12 models",
 
     service_eyebrow: "Service", service_title: "Full after-sales support",
     service_text: "Buying a machine is just the start - we stay with you for its entire service life",

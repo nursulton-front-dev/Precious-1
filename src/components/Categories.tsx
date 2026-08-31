@@ -21,7 +21,7 @@ export function Categories({ onSelect }: { onSelect: (categoryId: string) => voi
           <p className="mt-3.5 text-[16px] text-gray-600">{t('cat_text')}</p>
         </Reveal>
 
-        <RevealGroup className="grid grid-cols-2 gap-4.5 sm:grid-cols-3 lg:grid-cols-5" stagger={0.07}>
+        <RevealGroup className="grid grid-cols-2 gap-4.5 sm:grid-cols-3 lg:grid-cols-6" stagger={0.07}>
           {CATEGORIES.map((cat) => (
             <RevealItem key={cat.id}>
               <motion.button
