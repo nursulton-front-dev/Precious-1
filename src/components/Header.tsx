@@ -35,9 +35,8 @@ function LangSwitch({ compact = false, light = false }: { compact?: boolean; lig
           <button
             key={l.code}
             onClick={() => setLang(l.code)}
-            className={`rounded border px-3 py-1.5 text-xs font-bold ${
-              lang === l.code ? 'border-brand-red text-brand-red' : 'border-gray-200 text-brand-ink'
-            }`}
+            className={`rounded border px-3 py-1.5 text-xs font-bold ${lang === l.code ? 'border-brand-red text-brand-red' : 'border-gray-200 text-brand-ink'
+              }`}
           >
             {l.code.toUpperCase()}
           </button>
@@ -50,17 +49,15 @@ function LangSwitch({ compact = false, light = false }: { compact?: boolean; lig
     <div className="relative" ref={ref}>
       <button
         onClick={() => setOpen((v) => !v)}
-        className={`flex items-center gap-1.5 rounded-md border px-3 py-2 text-[13.5px] font-bold transition-colors duration-300 ${
-          light ? 'border-white/35 text-white' : 'border-gray-200 text-brand-ink'
-        }`}
+        className={`flex items-center gap-1.5 rounded-md border px-3 py-2 text-[13.5px] font-bold transition-colors duration-300 ${light ? 'border-white/35 text-white' : 'border-gray-200 text-brand-ink'
+          }`}
       >
         <span>{lang.toUpperCase()}</span>
         <Icon name="chevron" className={`h-3 w-3 transition-transform ${open ? 'rotate-180' : ''}`} />
       </button>
       <div
-        className={`absolute right-0 top-[calc(100%+8px)] min-w-[130px] overflow-hidden rounded-lg border border-gray-200 bg-white shadow-lg transition-all ${
-          open ? 'visible translate-y-0 opacity-100' : 'invisible -translate-y-1.5 opacity-0'
-        }`}
+        className={`absolute right-0 top-[calc(100%+8px)] min-w-[130px] overflow-hidden rounded-lg border border-gray-200 bg-white shadow-lg transition-all ${open ? 'visible translate-y-0 opacity-100' : 'invisible -translate-y-1.5 opacity-0'
+          }`}
       >
         {LANGUAGES.map((l) => (
           <button
@@ -69,9 +66,8 @@ function LangSwitch({ compact = false, light = false }: { compact?: boolean; lig
               setLang(l.code);
               setOpen(false);
             }}
-            className={`block w-full px-3.5 py-2.5 text-left text-[13.5px] font-semibold hover:bg-gray-100 ${
-              lang === l.code ? 'text-brand-red' : 'text-brand-ink'
-            }`}
+            className={`block w-full px-3.5 py-2.5 text-left text-[13.5px] font-semibold hover:bg-gray-100 ${lang === l.code ? 'text-brand-red' : 'text-brand-ink'
+              }`}
           >
             {l.label}
           </button>
@@ -102,15 +98,14 @@ export function Header() {
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-          transparent
+        className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${transparent
             ? 'border-b border-transparent bg-transparent'
             : 'border-b border-gray-200/70 bg-white/75 shadow-[0_8px_30px_-12px_rgba(22,23,27,0.15)] backdrop-blur-xl'
-        }`}
+          }`}
       >
         <div className="mx-auto flex h-[82px] max-w-[1220px] items-center justify-between gap-10 px-6">
           <Link to="/" className="flex flex-shrink-0 items-center">
-            <Logo variant={transparent ? 'white' : 'color'} className="h-8 w-auto transition-all duration-300" />
+            <Logo variant={transparent ? 'white' : 'red'} className="h-8 w-auto transition-all duration-300" />
           </Link>
 
           <nav className="hidden items-center gap-7 xl:flex">
@@ -118,14 +113,13 @@ export function Header() {
               <a
                 key={item.key}
                 href={`/${item.hash}`}
-                className={`relative py-1.5 text-[14.5px] font-semibold uppercase tracking-wide transition-colors duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-brand-red after:transition-all hover:after:w-full ${
-                  transparent ? 'text-white' : 'text-brand-ink'
-                }`}
+                className={`relative py-1.5 text-[14.5px] font-semibold uppercase tracking-wide transition-colors duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-brand-red after:transition-all hover:after:w-full ${transparent ? 'text-white' : 'text-brand-ink'
+                  }`}
               >
                 {t(item.key)}
               </a>
             ))}
-          </nav>     
+          </nav>
 
           <div className="flex flex-shrink-0 items-center gap-4">
             <div className="hidden xl:block">
@@ -164,14 +158,12 @@ export function Header() {
 
       <div
         onClick={() => setMobileOpen(false)}
-        className={`fixed inset-0 z-[105] bg-black/40 transition-opacity lg:hidden ${
-          mobileOpen ? 'visible opacity-100' : 'invisible opacity-0'
-        }`}
+        className={`fixed inset-0 z-[105] bg-black/40 transition-opacity lg:hidden ${mobileOpen ? 'visible opacity-100' : 'invisible opacity-0'
+          }`}
       />
       <aside
-        className={`fixed inset-y-0 right-0 z-[110] w-[78%] max-w-[320px] overflow-y-auto bg-white p-6 shadow-2xl transition-transform lg:hidden ${
-          mobileOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
+        className={`fixed inset-y-0 right-0 z-[110] w-[78%] max-w-[320px] overflow-y-auto bg-white p-6 shadow-2xl transition-transform lg:hidden ${mobileOpen ? 'translate-x-0' : 'translate-x-full'
+          }`}
       >
         <button onClick={() => setMobileOpen(false)} aria-label="Close" className="mb-5 text-2xl leading-none">
           &times;
