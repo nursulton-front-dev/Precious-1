@@ -33,19 +33,21 @@ export async function getProducts(): Promise<Product[]> {
       return text;
     };
 
-    // Merge fetched DB products with static fallback images if image_url is empty
-    return data.map((item: any) => {
-      const fallback = PRODUCTS.find((p) => p.id === item.id);
-      return {
-        id: item.id,
-        category: item.category,
-        model: item.model,
-        image: item.image_url && item.image_url.trim() !== '' ? item.image_url : (fallback?.image || staticImageMap[item.id] || ''),
-        tagline: cleanText(item.tagline || fallback?.tagline),
-        description: cleanText(item.description || fallback?.description),
-        specs: item.specs || fallback?.specs || [],
-      };
-    });
+    // Merge fetched DB products with static fallbacks. Exclude products removed from PRODUCTS.
+    return data
+      .filter((item: any) => PRODUCTS.some((p) => p.id === item.id))
+      .map((item: any) => {
+        const fallback = PRODUCTS.find((p) => p.id === item.id);
+        return {
+          id: item.id,
+          category: fallback?.category || item.category,
+          model: item.model || fallback?.model || '',
+          image: item.image_url && item.image_url.trim() !== '' ? item.image_url : (fallback?.image || staticImageMap[item.id] || ''),
+          tagline: cleanText(item.tagline || fallback?.tagline),
+          description: cleanText(item.description || fallback?.description),
+          specs: item.specs && item.specs.length > 0 ? item.specs : (fallback?.specs || []),
+        };
+      });
   } catch (err) {
     console.error('Error fetching products from Supabase:', err);
     return PRODUCTS;
