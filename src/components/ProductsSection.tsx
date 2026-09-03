@@ -37,7 +37,7 @@ export const ProductsSection = forwardRef<HTMLDivElement, { activeCategory: stri
             <p className="mt-3.5 text-[16px] text-gray-600">{t('hits_text')}</p>
           </Reveal>
 
-          <Reveal delay={0.1} className="mb-9 flex flex-wrap gap-2.5">
+          <Reveal delay={0.1} className="mb-9 flex flex-wrap justify-center gap-2.5">
             <FilterTab active={activeCategory === 'all'} onClick={() => onCategoryChange('all')}>
               {t('filter_all')}
             </FilterTab>
