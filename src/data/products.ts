@@ -33,7 +33,6 @@ import imgV19s4ut from '../assets/products/v19s-4ut.jpeg';
 import imgPc0303d from '../assets/products/pc0303d.jpeg';
 import imgPc2284d from '../assets/products/pc2284d.jpeg';
 import imgPc20618d2 from '../assets/products/pc20618d-2.jpeg';
-import imgPc008dDvpl from '../assets/products/pc008d-12064dvpl.jpeg';
 import imgPc1906 from '../assets/products/pc1906.jpeg';
 import imgPc268d273 from '../assets/products/pc268d-273.jpeg';
 import img2000cdk from '../assets/products/2000cdk.jpeg';
@@ -417,7 +416,7 @@ export const PRODUCTS: Product[] = [
     ]),
   },
   {
-    id: 'pc103', category: 'special', model: 'PC103', image: imgPc103,
+    id: 'pc103', category: 'accessories', model: 'PC103', image: imgPc103,
     tagline: { uz: "10 dyuymli vertikal mato kesish pichog'i", ru: "10-дюймовый вертикальный раскройный нож", en: "10-inch vertical fabric cutting knife" },
     description: {
       uz: "10 dyuymli, 550 W quvvatli vertikal mato kesish pichog'i. Mato qatlamlarini tez, tekis va aniq kesish uchun mo'ljallangan, 215 mm kesish balandligi bir vaqtning o'zida bir nechta qatlam bilan ishlash imkonini beradi. O'z-o'zini charxlash mexanizmi pichoqning o'tkirligini saqlashga yordam beradi.",
@@ -471,7 +470,7 @@ export const PRODUCTS: Product[] = [
     ]),
   },
   {
-    id: 'pc100b', category: 'special', model: 'PC100B', image: imgPc100b,
+    id: 'pc100b', category: 'accessories', model: 'PC100B', image: imgPc100b,
     tagline: { uz: "Batareyali simsiz mato kesish pichog'i", ru: "Аккумуляторный беспроводной раскройный нож", en: "Cordless battery-powered fabric cutter" },
     description: {
       uz: "Batareyali simsiz mato kesish uskunasi. Mato va boshqa tikuvchilik materiallarini tez, qulay va aniq kesish uchun mo'ljallangan, elektr kabeliga bog'lanmasdan erkin harakatlanish imkonini beradi. 100 mm diametrli pichoq 50 mm gacha qalinlikdagi qatlamlarni kesishga mos.",
@@ -488,7 +487,7 @@ export const PRODUCTS: Product[] = [
     ]),
   },
   {
-    id: 'pc100d', category: 'special', model: 'PC100D', image: imgPc100d,
+    id: 'pc100d', category: 'accessories', model: 'PC100D', image: imgPc100d,
     tagline: { uz: "Diskli mato kesish pichog'i", ru: "Дисковый раскройный нож", en: "Round-blade fabric cutter" },
     description: {
       uz: "Diskli mato kesish uskunasi, mato va boshqa tikuvchilik materiallarini tez, tekis va aniq kesish uchun mo'ljallangan. 100 mm diametrli disk pichoq 50 mm gacha qalinlikdagi mato qatlamlari bilan samarali ishlash imkonini beradi. Ixcham konstruksiyasi kesish jarayonini osonlashtiradi.",
@@ -563,7 +562,7 @@ export const PRODUCTS: Product[] = [
     ]),
   },
   {
-    id: 'pc-99b', category: 'special', model: 'PC-99B', image: imgPc99b,
+    id: 'pc-99b', category: 'accessories', model: 'PC-99B', image: imgPc99b,
     tagline: { uz: "Bug'li sanoat dazmoli", ru: "Промышленный паровой утюг", en: "Industrial steam iron" },
     description: {
       uz: "Tikuvchilik mahsulotlarini professional dazmollash va yakuniy ishlov berish uchun mo'ljallangan sanoat bug'li dazmoli. Bug' bilan ishlash tizimi matodagi burmalarni samarali tekislab, mahsulotga saranjom ko'rinish beradi. 5 bosqichli harorat sozlagichi turli matolar uchun mos haroratni tanlash imkonini beradi.",
@@ -604,10 +603,6 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'pc20618d-2', category: 'heavy', model: 'PC20618D-2', image: imgPc20618d2,
-    tagline: comingSoonTagline, description: comingSoonDescription, specs: [],
-  },
-  {
-    id: 'pc008d-12064dvpl', category: 'special', model: 'PC008D-12064DVPL', image: imgPc008dDvpl,
     tagline: comingSoonTagline, description: comingSoonDescription, specs: [],
   },
   {
